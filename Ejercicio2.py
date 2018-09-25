@@ -1,15 +1,14 @@
 import ply.lex as lex
 
-tokens = [ 'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE', 'EQUALS' ]
+tokens = [ 'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE', 'EQUALS', 'ASIGN' ]
 
 t_ignore = ' \t'
-t_PLUS = r'\+'
-t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
+t_PLUS = r'SUMA'
+t_MINUS = r'RESTA'
+t_TIMES = r'MULTIPLICACION'
+t_DIVIDE = r'DIVISION'
+t_ASIGN = r'ASIGNACION'
 t_EQUALS = r':='
-t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
-
 def t_NUMBER(t):
     r'\d+'
     t.value = int(t.value)
@@ -22,12 +21,10 @@ def t_error(t):
 
 lex.lex() # Build the lexer
 
-lex.input("x = 3 - 4 + 5 * 6")
+lex.input("MULTIPLICACION x = 3 - 4 + 5 * 6 SUMA ASIGNACION RESTA")
+
 while True:
     tok = lex.token()
     if not tok: break
     print str(tok.value) + " - " + str(tok.type)
 
-
-archivoEntrada = open("E:\expresiones.txt", "r")
-lineasArchivo = archivoEntrada.readlines()
