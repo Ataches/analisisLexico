@@ -2,7 +2,7 @@ import ply.lex as lex
 
 tokens = [ 'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE', 'EQUALS' ]
 
-t_ignore = ' \t'
+t_ignore = ' \t \n'
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
@@ -28,8 +28,7 @@ lineasArchivo = archivoEntrada.readlines()
 for lineas in lineasArchivo:
     lex.input(lineas)
 
-    
-while True:
-    tok = lex.token()
-    if not tok: break
-    print str(tok.value) + " - " + str(tok.type)
+    while True:
+        tok = lex.token()
+        if not tok: break
+        print str(tok.value) + " - " + str(tok.type)
