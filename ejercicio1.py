@@ -7,7 +7,7 @@ t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
-t_EQUALS = r':='
+t_EQUALS = r'='
 t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
 def t_NUMBER(t):
