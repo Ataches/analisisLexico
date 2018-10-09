@@ -1,8 +1,9 @@
 import ply.lex as lex
 
-tokens = [ 'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE', 'EQUALS' ]
+tokens = ['NEWLINE', 'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE', 'EQUALS' ]
 
-t_ignore = ' \t \n'
+t_ignore = ' \t'
+t_NEWLINE = r' \n'
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
